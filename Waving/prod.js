@@ -1,6 +1,6 @@
 const svgns = "http://www.w3.org/2000/svg";
-const rectWidth = 400;
-const rectHeight = 300;
+const rectWidth = 40;
+const rectHeight = 30;
 
 const flag = [{
     "x": "af",
@@ -35,12 +35,14 @@ const filtData = [
     { "filtName": "feTurbulence", "numOctaves": "1", "seed": "1", 'baseFrequency': '0.006', 'stitchTiles': 'stitch', 'id': 'fltOne', 'width': `${rectWidth}`, 'height': `${rectHeight}` },
     { "filtName": "feTile", 'width': `${rectWidth*4}`, 'height': `${rectHeight+100}` },
     { "filtName": "feOffset", 'result': 'turbulence', 'dx': '0' },
-    { "filtName": "feDisplacementMap", "in": "SourceGraphic", "in2": "turbulence", 'scale': '30', 'result': 'dist', 'id': 'fltTwo' }
+    { "filtName": "feDisplacementMap", "in": "SourceGraphic", "in2": "turbulence", 'scale': `${(rectWidth/400)*30}`, 'result': 'dist', 'id': 'fltTwo' }
 
 ];
+
 const filt = defs
     .append('filter')
     .attr('id', 'filt')
+    .attr('width', '2');
 
 
 
