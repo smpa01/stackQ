@@ -1,10 +1,10 @@
 const svgns = "http://www.w3.org/2000/svg";
-const rectWidth = 40;
-const rectHeight = 30;
+const rectWidth = 400;
+const rectHeight = 300;
 
 const flag = [{
     "x": "af",
-    "z": "https://raw.githubusercontent.com/d3/d3-logo/master/d3.svg"
+    "z": "https://cdn.jsdelivr.net/gh/lipis/flag-icon-css@3.5.0/flags/4x3/us.svg"
 }];
 
 const svg =
@@ -35,14 +35,14 @@ const filtData = [
     { "filtName": "feTurbulence", "numOctaves": "1", "seed": "1", 'baseFrequency': '0.006', 'stitchTiles': 'stitch', 'id': 'fltOne', 'width': `${rectWidth}`, 'height': `${rectHeight}` },
     { "filtName": "feTile", 'width': `${rectWidth*4}`, 'height': `${rectHeight+100}` },
     { "filtName": "feOffset", 'result': 'turbulence', 'dx': '0' },
-    { "filtName": "feDisplacementMap", "in": "SourceGraphic", "in2": "turbulence", 'scale': `${(rectWidth/400)*30}`, 'result': 'dist', 'id': 'fltTwo' }
+    { "filtName": "feDisplacementMap", "in": "SourceGraphic", "in2": "turbulence", 'scale': `30`, 'result': 'dist', 'id': 'fltTwo' }
 
 ];
 
 const filt = defs
     .append('filter')
     .attr('id', 'filt')
-    .attr('width', '2');
+    .attr('width', '20');
 
 
 
@@ -75,7 +75,8 @@ const rectMain = svg.append('rect')
     .attr('width', `${rectWidth}`)
     .attr('height', `${rectHeight}`)
     .attr('fill', 'url(#af)')
-    .style('filter', 'url(#filt)');
+    .style('filter', 'url(#filt)')
+    // .attr('transform', 'scale(1)')
 
 //animate    
 
